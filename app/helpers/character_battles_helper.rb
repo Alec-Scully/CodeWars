@@ -1,0 +1,2 @@
+module CharacterBattlesHelper
+end
