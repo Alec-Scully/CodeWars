@@ -1,0 +1,20 @@
+<h1> <%= @character.name %>'s page </h1>
+<br>
+<h3> Name: <%= @character.name %> </h3>
+<h3> Species <%= @character.species %> </h3>
+<h3> Description: <%= @character.description %> </h3>
+<h3> Faction: <%= @character.faction.name %> </h3>
+<h3> Class: <%= @character.classification %> </h3>
+<br>
+<h3> Battle Status: <%= @character.status %> </h3>
+<h4> Battles Won: <%= @character.battles_won %> </h4>
+<h4> Battles Lost: <%= @character.battles_lost %> </h4>
+<% #byebug %>
+
+
+<hr> <br>
+<%= link_to '<button type="button">Go to All Factions</button>'.html_safe, factions_path %> <br>
+<br>
+<%= link_to '<button type="button">Go to All Characters</button>'.html_safe, characters_path %> <br>
+<br>
+<%= link_to '<button type="button">Go Home</button>'.html_safe, root_path %>

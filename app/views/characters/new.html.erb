@@ -1,0 +1,27 @@
+<h1> Create your new character: </h1>
+
+
+<%= form_for @character do | f | %>
+    <%= f.label :name %> 
+    <%= f.text_field :name %> <br>
+    <br>
+    <%= f.label :species %>
+    <%= f.select :species, [['Human', 'Human'], ['Wookie', 'Wookie'], ['Ewok', 'Ewok'], ['Tusken Raider', 'Tusken Raider'],
+        ['Mon Calamari', 'Mon Calamari'], ['Togruta', 'Togruta'], ['Zabrak', 'Zabrak']] %> <br>
+    <br>
+    <%= f.label "Description/Background" %> 
+    <%= f.text_area :description %> <br>
+    <br>
+    <%= f.label :faction_id %> 
+    <%= f.collection_select :faction_id, Faction.all, :id, :name %> <br>
+    <br>
+    <%= f.label "Class"%> 
+    <%= f.select :classification, [['Force User', 'Force User'], ['Soldier', 'Soldier'], ['Scoundrel', 'Scoundrel']]%> <br>
+    <br>
+    <%= f.submit %>
+<% end %>
+
+<hr> <br>
+<br>
+<%= link_to '<button type="button">Go Home</button>'.html_safe, root_path %>
+    

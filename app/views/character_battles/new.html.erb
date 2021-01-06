@@ -1,0 +1,9 @@
+<%= form_for @character_battle do | f | %>
+    <%= f.label "Choose your character:" %>
+    <%= f.collection_select :user_id, Character.all, :id, :name %> <br>
+    <br>
+    <%= f.label "Choose your opponent:" %> <br>
+    <%= f.collection_select :character_id, Character.all, :id, :name %> <br>
+    <br>
+    <%= f.submit "Battle!" %>
+<% end %>

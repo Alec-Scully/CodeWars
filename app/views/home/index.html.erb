@@ -8,5 +8,20 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1> Example </h1>
-<p> Lorem ipsum ...</p>
+<h1> Star Wars Battle Tracker </h1>
+<p> Welcome to the Star Wars Battle Tracker!</p>
+<p> In this website, you are able to create a basic Star Wars character of your own and
+    pit them against other user's characters and galatic legends throughout the entire Star Wars series! </p>
+<br>
+<%= link_to '<button type="button">See Your Characters</button>'.html_safe, characters_path %> <br>
+<br>
+<%= link_to '<button type="button">Create a New Character</button>'.html_safe, new_character_path %> <br>
+
+
+<hr> <br>
+<%= link_to '<button type="button">Go to All Factions</button>'.html_safe, factions_path %> <br>
+<br>
+<%= link_to '<button type="button">Go to All Characters</button>'.html_safe, characters_path %> <br>
+
+<br>
+<%= link_to '<button type="button">Create a New Battle!</button>'.html_safe, new_character_battle_path %>

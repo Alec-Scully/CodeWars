@@ -22,13 +22,14 @@ fact5 = Faction.create(name: "Resistance", description: "What a joke of a group"
 
 
 #characters
-Character.create(name: "Luke Skywalker",    species: "Human", description: "Son of Anakin",             faction_id: fact4.id, classification: "Force User", status: "Alive", battles_won: 0, battles_lost: 0)
-Character.create(name: "Darth Vader",       species: "Human", description: "Killed Anakin",             faction_id: fact3.id, classification: "Force User", status: "Alive" , battles_won: 0, battles_lost: 0)
-Character.create(name: "Obi-Wan Kenobi",    species: "Human", description: "Old Ben",                   faction_id: fact1.id, classification: "Force User", status: "Alive" , battles_won: 0, battles_lost: 0)
-Character.create(name: "Darth Maul",        species: "Dathomirian", description: "The best character",  faction_id: fact2.id, classification: "Force User", status: "Alive" , battles_won: 0, battles_lost: 0)
-Character.create(name: "Padme Amidala",     species: "Human", description: "Died because she was sad",  faction_id: fact1.id, classification: "Soldier", status: "Alive" , battles_won: 0, battles_lost: 0)
-Character.create(name: "Jar Jar Binks",     species: "Gungan", description: "The hero we needed",       faction_id: fact1.id, classification: "Scoundrel", status: "Alive" , battles_won: 0, battles_lost: 0)
-Character.create(name: "Rey",               species: "Human", description: "-ders of the Lost Ark",     faction_id: fact5.id, classification: "Force User", status: "Alive" , battles_won: 0, battles_lost: 0)
+ch1 = Character.create(name: "Luke Skywalker",    species: "Human", description: "Son of Anakin",             faction_id: fact4.id, classification: "Force User", status: "Alive", battles_won: 0, battles_lost: 0)
+ch2 = Character.create(name: "Darth Vader",       species: "Human", description: "Killed Anakin",             faction_id: fact3.id, classification: "Force User", status: "Alive" , battles_won: 0, battles_lost: 0)
+ch3 = Character.create(name: "Obi-Wan Kenobi",    species: "Human", description: "Old Ben",                   faction_id: fact1.id, classification: "Force User", status: "Alive" , battles_won: 0, battles_lost: 0)
+ch4 = Character.create(name: "Darth Maul",        species: "Dathomirian", description: "The best character",  faction_id: fact2.id, classification: "Force User", status: "Alive" , battles_won: 0, battles_lost: 0)
+ch5 = Character.create(name: "Padme Amidala",     species: "Human", description: "Died because she was sad",  faction_id: fact1.id, classification: "Soldier", status: "Alive" , battles_won: 0, battles_lost: 0)
+ch6 = Character.create(name: "Jar Jar Binks",     species: "Gungan", description: "The hero we needed",       faction_id: fact1.id, classification: "Scoundrel", status: "Alive" , battles_won: 0, battles_lost: 0)
+ch7 = Character.create(name: "Rey",               species: "Human", description: "-ders of the Lost Ark",     faction_id: fact5.id, classification: "Force User", status: "Alive" , battles_won: 0, battles_lost: 0)
 
 
-
+#battle test
+Battle.create(challenger_number: nil, character_number: nil)

@@ -1,0 +1,12 @@
+<h1> Here is a list of all characters! </h1>
+
+<ul>
+    <% @characters.each do | character | %>
+        <li> <h3> <%= link_to character.name, character_path(character.id) %> <br> </h3>
+    <% end %>
+</ul> <br>
+
+<hr> <br>
+<%= link_to '<button type="button">Go to Factions</button>'.html_safe, factions_path %> <br>
+<br> <br>
+<%= link_to '<button type="button">Go Home</button>'.html_safe, root_path %>
