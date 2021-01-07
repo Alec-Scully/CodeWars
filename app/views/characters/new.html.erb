@@ -21,6 +21,7 @@
     <%= f.hidden_field :battles_won, value: 0 %>
     <%= f.hidden_field :battles_lost, value: 0 %>
     <%= f.hidden_field :status, value: "Alive" %>
+    <%= f.hidden_field :user_id, value: session[:user_id] %>
     <%= f.submit %>
 <% end %>
 

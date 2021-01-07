@@ -26,7 +26,7 @@ class CharactersController < ApplicationController
     private
 
     def character_params
-        params.require(:character).permit(:name, :species, :description, :faction_id, :classification, :status, :battles_won, :battles_lost)
+        params.require(:character).permit(:name, :species, :description, :faction_id, :classification, :status, :battles_won, :battles_lost, :user_id)
     end
         
     # t.string :name

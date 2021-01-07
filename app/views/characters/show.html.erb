@@ -9,12 +9,12 @@
 <h3> Battle Status: <%= @character.status %> </h3>
 <h4> Battles Won: <%= @character.battles_won %> </h4>
 <h4> Battles Lost: <%= @character.battles_lost %> </h4>
-<% #byebug %>
 
-<%= form_for @character, method: :delete do | f | %>
-    <%= f.submit "Delete Character" %>
+<% if @character.user_id == session[:user_id] %>
+    <%= form_for @character, method: :delete do | f | %>
+        <%= f.submit "Delete Character" %>
+    <% end %>
 <% end %>
-
 
 <hr> <br>
 <%= link_to '<button type="button">Go to Factions</button>'.html_safe, factions_path %> <br>

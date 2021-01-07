@@ -4,6 +4,11 @@
 
 <h2> Your characters: </h2>
 
+<ul>
+<% @user.characters.each do | character | %>
+    <li> <h3> <%= link_to character.name, character_path(character.id) %> <br> </h3>
+<% end %>
+</ul>
 
 <hr> <br>
 <%= link_to '<button type="button">Go Home</button>'.html_safe, root_path %>

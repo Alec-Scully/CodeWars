@@ -9,6 +9,7 @@
       t.string :status
       t.integer :battles_won
       t.integer :battles_lost
+      t.integer :user_id
       t.timestamps
     end
   end
