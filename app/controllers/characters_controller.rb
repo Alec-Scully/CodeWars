@@ -14,15 +14,13 @@ class CharactersController < ApplicationController
     
     def create
         @character = Character.create(character_params)
-        @character.battles_won = 0
-        @character.battles_lost = 0
         redirect_to character_path(@character)
     end
 
     def destroy
         @character = Character.find_by(id: params[:id])
-        @charater.destroy
-        redirect_to character_path
+        @character.destroy
+        redirect_to characters_path
     end
 
     private

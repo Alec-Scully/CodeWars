@@ -11,10 +11,14 @@
 <h4> Battles Lost: <%= @character.battles_lost %> </h4>
 <% #byebug %>
 
+<%= form_for @character, method: :delete do | f | %>
+    <%= f.submit "Delete Character" %>
+<% end %>
+
 
 <hr> <br>
-<%= link_to '<button type="button">Go to All Factions</button>'.html_safe, factions_path %> <br>
+<%= link_to '<button type="button">Go to Factions</button>'.html_safe, factions_path %> <br>
 <br>
-<%= link_to '<button type="button">Go to All Characters</button>'.html_safe, characters_path %> <br>
+<%= link_to '<button type="button">Go to Characters</button>'.html_safe, characters_path %> <br>
 <br>
 <%= link_to '<button type="button">Go Home</button>'.html_safe, root_path %>

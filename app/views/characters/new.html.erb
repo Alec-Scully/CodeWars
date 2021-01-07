@@ -18,6 +18,9 @@
     <%= f.label "Class"%> 
     <%= f.select :classification, [['Force User', 'Force User'], ['Soldier', 'Soldier'], ['Scoundrel', 'Scoundrel']]%> <br>
     <br>
+    <%= f.hidden_field :battles_won, value: 0 %>
+    <%= f.hidden_field :battles_lost, value: 0 %>
+    <%= f.hidden_field :status, value: "Alive" %>
     <%= f.submit %>
 <% end %>
 
