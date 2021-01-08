@@ -1,31 +1,62 @@
-<h1> Create your new character: </h1>
+<div class="navbar">
+    <a href="http://localhost:3000/"><img src="http://arcos-platform.site/wp-content/uploads/2021/01/PosterArtboard-1-copyAsset.png" width="225" height="25"</a>
+    <a href="http://localhost:3000/characters">Characters</a>
+    <a href="http://localhost:3000/factions">Factions</a>
+        <div class="topnav-right">
+            
+            
+            <% if current_user %>
+            <%= link_to "Your Crew", user_path(session[:user_id])%>
+            <%= link_to "Log Out", logout_path %>
+            <% else %>
+            <%= link_to "Sign Up", signup_path %> 
+            <%= link_to "Log In", login_path %>
+            <% end %>
+        </div>
+</div>
+<br>
+<br>
+<br>
+
+<% if session[:user_id] %>
+    <h1> Create your new character: </h1>
 
 
-<%= form_for @character do | f | %>
-    <%= f.label :name %> 
-    <%= f.text_field :name %> <br>
-    <br>
-    <%= f.label :species %>
-    <%= f.select :species, [['Human', 'Human'], ['Wookie', 'Wookie'], ['Ewok', 'Ewok'], ['Tusken Raider', 'Tusken Raider'],
-        ['Mon Calamari', 'Mon Calamari'], ['Togruta', 'Togruta'], ['Zabrak', 'Zabrak']] %> <br>
-    <br>
-    <%= f.label "Description/Background" %> 
-    <%= f.text_area :description %> <br>
-    <br>
-    <%= f.label :faction_id %> 
-    <%= f.collection_select :faction_id, Faction.all, :id, :name %> <br>
-    <br>
-    <%= f.label "Class"%> 
-    <%= f.select :classification, [['Force User', 'Force User'], ['Soldier', 'Soldier'], ['Scoundrel', 'Scoundrel']]%> <br>
-    <br>
-    <%= f.hidden_field :battles_won, value: 0 %>
-    <%= f.hidden_field :battles_lost, value: 0 %>
-    <%= f.hidden_field :status, value: "Alive" %>
-    <%= f.hidden_field :user_id, value: session[:user_id] %>
-    <%= f.submit %>
+    <% if flash[:errors] %>
+        <% flash[:errors].each do | error | %>
+            <li style="color: red;">
+                <%= error %>
+            </li>
+        <% end %>
+    <% end %>
+
+    <%= form_for @character do | f | %>
+        <%= f.label :name %> 
+        <%= f.text_field :name %> <br>
+        <br>
+        <%= f.label :species %>
+        <%= f.select :species, [['Human', 'Human'], ['Wookie', 'Wookie'], ['Ewok', 'Ewok'], ['Tusken Raider', 'Tusken Raider'],
+            ['Mon Calamari', 'Mon Calamari'], ['Togruta', 'Togruta'], ['Zabrak', 'Zabrak'], ['Droid', 'Droid']] %> <br>
+        <br>
+        <%= f.label "Description/Background" %> 
+        <%= f.text_area :description %> <br>
+        <br>
+        <%= f.label :faction_id %> 
+        <%= f.collection_select :faction_id, Faction.all, :id, :name %> <br>
+        <br>
+        <%= f.label "Class"%> 
+        <%= f.select :classification, [['Force User', 'Force User'], ['Soldier', 'Soldier'], ['Scoundrel', 'Scoundrel']]%> <br>
+        <br>
+        <%= f.hidden_field :battles_won, value: 0 %>
+        <%= f.hidden_field :battles_lost, value: 0 %>
+        <%= f.hidden_field :status, value: "Alive" %>
+        <%= f.hidden_field :user_id, value: session[:user_id] %>
+        <%= f.submit %>
+    <% end %>
+
+<% else %>
+    
+    <h1> Please log in to create a new character. </h1>
+
 <% end %>
 
-<hr> <br>
-<br>
-<%= link_to '<button type="button">Go Home</button>'.html_safe, root_path %>
-    

@@ -1,19 +1,40 @@
-<h1> Create Your New Battle: </h1>
-<h2> Note: You must create characters before being able to select them! </h2>
+<div class="navbar">
+    <a href="http://localhost:3000/"><img src="http://arcos-platform.site/wp-content/uploads/2021/01/PosterArtboard-1-copyAsset.png" width="225" height="25"</a>
+    <a href="http://localhost:3000/characters">Characters</a>
+    <a href="http://localhost:3000/factions">Factions</a>
+        <div class="topnav-right">
+            
+            
+            <% if current_user %>
+            <%= link_to "Your Crew", user_path(session[:user_id])%>
+            <%= link_to "Log Out", logout_path %>
+            <% else %>
+            <%= link_to "Sign Up", signup_path %> 
+            <%= link_to "Log In", login_path %>
+            <% end %>
+        </div>
+</div>
+<br>
+<br>
+<br>
 
-<%= form_for @character_battle do | f | %>
-    <%= f.label "Choose your character:" %>
-    <%= f.collection_select :user_id, @user.user_characters, :id, :name %> <br>
-    <br>
-    <%= f.label "Choose your opponent:" %> <br>
-    <%= f.collection_select :character_id, Character.all, :id, :name %> <br>
-    <br>
-    <%= f.submit "Battle!" %>
+<% if session[:user_id] %>
+
+    <h1> Create Your New Battle: </h1>
+    <h2> Note: You must create characters before being able to select them! </h2>
+
+    <%= form_for @character_battle do | f | %>
+        <%= f.label "Choose your character:" %>
+        <%= f.collection_select :user_id, @user.user_characters, :id, :name %> <br>
+        <br>
+        <%= f.label "Choose your opponent:" %> <br>
+        <%= f.collection_select :character_id, Character.all, :id, :name %> <br>
+        <br>
+        <%= f.submit "Battle!" %>
+    <% end %>
+
+<% else %>
+    
+    <h1> Please log in to create a new battle. </h1>
+
 <% end %>
-
-<hr> <br>
-<%= link_to '<button type="button">Go to Factions</button>'.html_safe, factions_path %> <br>
-<br>
-<%= link_to '<button type="button">Go to Characters</button>'.html_safe, characters_path %> <br>
-<br>
-<%= link_to '<button type="button">Go Home</button>'.html_safe, root_path %>

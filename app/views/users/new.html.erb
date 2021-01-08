@@ -1,3 +1,22 @@
+<div class="navbar">
+    <a href="http://localhost:3000/"><img src="http://arcos-platform.site/wp-content/uploads/2021/01/PosterArtboard-1-copyAsset.png" width="225" height="25"</a>
+    <a href="http://localhost:3000/characters">Characters</a>
+    <a href="http://localhost:3000/factions">Factions</a>
+        <div class="topnav-right">
+            
+            
+            <% if current_user %>
+            <%= link_to "Your Crew", user_path(session[:user_id])%>
+            <%= link_to "Log Out", logout_path %>
+            <% else %>
+            <%= link_to "Sign Up", signup_path %> 
+            <%= link_to "Log In", login_path %>
+            <% end %>
+        </div>
+</div>
+<br>
+<br>
+<br>
 <h1>New User</h1>
 
 <%= render 'form', user: @user %>

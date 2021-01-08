@@ -14,7 +14,14 @@ class CharactersController < ApplicationController
     
     def create
         @character = Character.create(character_params)
-        redirect_to character_path(@character)
+
+        if @character.valid?
+            @character.save
+            redirect_to character_path(@character)
+        else
+            flash[:errors] = @character.errors.full_messages
+            redirect_to new_character_path
+        end
     end
 
     def destroy
