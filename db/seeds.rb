@@ -32,6 +32,3 @@ ch5 = Character.create(name: "Padme Amidala",     species: "Human", description:
 ch6 = Character.create(name: "Jar Jar Binks",     species: "Gungan", description: "The hero we needed",       faction_id: fact1.id, classification: "Scoundrel", status: "Alive" , battles_won: 0, battles_lost: 0, user_id: User.first.id)
 ch7 = Character.create(name: "Rey",               species: "Human", description: "-ders of the Lost Ark",     faction_id: fact5.id, classification: "Force User", status: "Alive" , battles_won: 0, battles_lost: 0, user_id: User.first.id)
 
-
-#battle test
-Battle.create(challenger_number: nil, character_number: nil)

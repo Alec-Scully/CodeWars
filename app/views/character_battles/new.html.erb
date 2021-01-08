@@ -1,3 +1,6 @@
+<h1> Create Your New Battle: </h1>
+<h2> Note: You must create characters before being able to select them! </h2>
+
 <%= form_for @character_battle do | f | %>
     <%= f.label "Choose your character:" %>
     <%= f.collection_select :user_id, @user.user_characters, :id, :name %> <br>
@@ -7,3 +10,10 @@
     <br>
     <%= f.submit "Battle!" %>
 <% end %>
+
+<hr> <br>
+<%= link_to '<button type="button">Go to Factions</button>'.html_safe, factions_path %> <br>
+<br>
+<%= link_to '<button type="button">Go to Characters</button>'.html_safe, characters_path %> <br>
+<br>
+<%= link_to '<button type="button">Go Home</button>'.html_safe, root_path %>

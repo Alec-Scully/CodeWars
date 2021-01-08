@@ -6,11 +6,11 @@ class User < ApplicationRecord
 
   def user_characters
     
-    # Character.all.select do| character | 
-    #     self.id == character.user_id
-    # end
-    
-    [Character.first, Character.second]
+    Character.all.select do | character | 
+        self.id == character.user_id
+        # byebug
+    end
+    # [Character.first, Character.second]
   end
 
   def user_loss

@@ -16,24 +16,25 @@ class CharacterBattlesController < ApplicationController
             #user win
             @battle.characters.first.character_win
             @battle.characters.second.character_loss
-            # @battle.winner = @battle.characters.first.id
-            #add who won into the migration for battle (id or name)
+            @battle.update(winner_id: @battle.characters.first.id)
+            @battle.update(loser_id: @battle.characters.second.id)
+            # byebug
         elsif result == 2
             #char win
             @battle.characters.first.character_loss
             @battle.characters.second.character_win
-            # @battle.winner = @battle.characters.second.id
+            @battle.update(winner_id: @battle.characters.second.id)
+            @battle.update(loser_id: @battle.characters.first.id)
         else
             #tie
         end
-
         redirect_to battle_path(@battle)
     end
 
     # private
 
     def character_battle_params
-        params.require(:character_battle).permit(:character_id, :user_id)
+        params.require(:character_battle).permit(:character_id, :user_id, :winner_id, :loser_id)
     end
 
 end

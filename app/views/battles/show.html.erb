@@ -1,4 +1,13 @@
-<h1> Battle between <%= @battle.characters.first.name %> and <%= @battle.characters.second.name %> <h1>
-
-<%= @battle.characters.first.battles_won %>
-<%= @battle.characters.second.battles_won %>
+<h1> Battle between <%= @battle.characters.first.name %> and <%= @battle.characters.second.name %>! <h1>
+<br>
+<h2> The winner of this battle is: <%= @winner.name %> </h2>
+<h3> <%= link_to @winner.name, character_path(@winner) %> has won a total of <%= @winner.battles_won %> times. </h3>
+<h3> <%= link_to @loser.name, character_path(@loser) %> has lost a total of <%= @loser.battles_lost %> times.</h3>
+<hr> <br>
+<%= link_to '<button type="button">Create Another Battle!</button>'.html_safe, new_character_battle_path(:id => session[:user_id]) %> <br>
+<br>
+<%= link_to '<button type="button">Go to  Factions</button>'.html_safe, factions_path %> <br>
+<br>
+<%= link_to '<button type="button">Go to  Characters</button>'.html_safe, characters_path %> <br>
+<br>
+<%= link_to '<button type="button">Go Home</button>'.html_safe, root_path %>    

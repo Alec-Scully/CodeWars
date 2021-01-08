@@ -1,2 +1,8 @@
 <h1> List of Previous Battles: </h1>
 
+<ul>
+    <% Battle.all.each do | battle | %>
+        <li> <h3> Battle between <%= battle.characters.first.name %> and <%= battle.characters.second.name %>! <br> </h3>
+        <%byebug%>
+    <% end %>
+</ul> <br>

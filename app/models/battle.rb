@@ -5,7 +5,7 @@ class Battle < ApplicationRecord
     def battle_choice
         user_num = rand(11)
         char_num = rand(11)
-
+        # byebug
         if user_num > char_num
             1
         elsif char_num > user_num
