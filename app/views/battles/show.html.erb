@@ -1,2 +1,28 @@
-<h1> Battle between <%= @battle.characters.first.name %> and <%= @battle.characters.second.name %> <h1>
+<div class="navbar">
+    <a href="http://localhost:3000/"><img src="http://arcos-platform.site/wp-content/uploads/2021/01/PosterArtboard-1-copyAsset.png" width="225" height="25"</a>
+    <a href="http://localhost:3000/characters">Characters</a>
+    <a href="http://localhost:3000/factions">Factions</a>
+        <div class="topnav-right">
+            
+            
+            <% if current_user %>
+            <%= link_to "Your Crew", user_path(session[:user_id])%>
+            <%= link_to "Log Out", logout_path %>
+            <% else %>
+            <%= link_to "Sign Up", signup_path %> 
+            <%= link_to "Log In", login_path %>
+            <% end %>
+        </div>
+</div>
+<br>
+<br>
+<br>
 
+<h1> Battle between <%= @battle.characters.first.name %> and <%= @battle.characters.second.name %>! <h1>
+<br>
+<h2> The winner of this battle is: <%= @winner.name %> </h2>
+<h3> <%= link_to @winner.name, character_path(@winner) %> has won a total of <%= @winner.battles_won %> times. </h3>
+<h3> <%= link_to @loser.name, character_path(@loser) %> has lost a total of <%= @loser.battles_lost %> times.</h3>
+<hr> <br>
+<%= link_to '<button type="button">Create Another Battle!</button>'.html_safe, new_character_battle_path(:id => session[:user_id]) %> <br>
+<br>

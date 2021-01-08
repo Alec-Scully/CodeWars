@@ -1,7 +1,26 @@
+<div class="navbar">
+    <a href="http://localhost:3000/"><img src="http://arcos-platform.site/wp-content/uploads/2021/01/PosterArtboard-1-copyAsset.png" width="225" height="25"</a>
+    <a href="http://localhost:3000/characters">Characters</a>
+    <a href="http://localhost:3000/factions">Factions</a>
+        <div class="topnav-right">
+            
+            
+            <% if current_user %>
+            <%= link_to "Your Crew", user_path(session[:user_id])%>
+            <%= link_to "Log Out", logout_path %>
+            <% else %>
+            <%= link_to "Sign Up", signup_path %> 
+            <%= link_to "Log In", login_path %>
+            <% end %>
+        </div>
+</div>
+<br>
+<br>
+<br>
 <h1> <%= @character.name %>'s page </h1>
 <br>
 <h3> Name: <%= @character.name %> </h3>
-<h3> Species <%= @character.species %> </h3>
+<h3> Species: <%= @character.species %> </h3>
 <h3> Description: <%= @character.description %> </h3>
 <h3> Faction: <%= @character.faction.name %> </h3>
 <h3> Class: <%= @character.classification %> </h3>
@@ -9,12 +28,10 @@
 <h3> Battle Status: <%= @character.status %> </h3>
 <h4> Battles Won: <%= @character.battles_won %> </h4>
 <h4> Battles Lost: <%= @character.battles_lost %> </h4>
-<% #byebug %>
 
+<% if @character.user_id == session[:user_id] %>
+    <%= form_for @character, method: :delete do | f | %>
+        <%= f.submit "Delete Character" %>
+    <% end %>
+<% end %>
 
-<hr> <br>
-<%= link_to '<button type="button">Go to All Factions</button>'.html_safe, factions_path %> <br>
-<br>
-<%= link_to '<button type="button">Go to All Characters</button>'.html_safe, characters_path %> <br>
-<br>
-<%= link_to '<button type="button">Go Home</button>'.html_safe, root_path %>

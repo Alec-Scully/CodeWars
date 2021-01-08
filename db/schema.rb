@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2021_01_05_161853) do
 
   create_table "battles", force: :cascade do |t|
-    t.integer "challenger_number"
-    t.integer "character_number"
+    t.integer "winner_id"
+    t.integer "loser_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_01_05_161853) do
     t.string "status"
     t.integer "battles_won"
     t.integer "battles_lost"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
